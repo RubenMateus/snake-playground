@@ -5,9 +5,15 @@ class Snake {
     this.ySpeed = 0;
   }
   
-  moveDir(){}
+  moveDir(xDir, yDir){
+    this.xSpeed = xDir * SCL;
+    this.ySpeed = yDir * SCL;
+  }
+
   eatsFood(){}
+
   losesTail(){}
+
   update(){
     const tempX = this.pos.x + this.xSpeed;
     const tempY = this.pos.y + this.ySpeed;
