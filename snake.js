@@ -17,8 +17,8 @@ class Snake {
   update(){
     const tempX = this.pos.x + this.xSpeed;
     const tempY = this.pos.y + this.ySpeed;
-    this.pos.x = constrain(tempX, 0, width - scl);
-    this.pos.y = constrain(tempY, 0, height - scl);
+    this.pos.x = constrain(tempX, 0, width - SCL);
+    this.pos.y = constrain(tempY, 0, height - SCL);
   }
 
   show(){
