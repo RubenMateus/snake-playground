@@ -10,7 +10,10 @@ class Snake {
     this.ySpeed = yDir * SCL;
   }
 
-  eatsFood(){}
+  eatsFood(foodPosition){
+    var distance = dist(this.pos.x, this.pos.y, foodPosition.x, foodPosition.y);
+    return distance < 1;
+  }
 
   losesTail(){}
 
