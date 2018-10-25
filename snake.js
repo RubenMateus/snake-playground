@@ -1,31 +1,37 @@
 class Snake {
-  constructor(){
-    this.pos = createVector(0,0);
+  constructor() {
+    this.pos = createVector(0, 0);
     this.xSpeed = SCL;
     this.ySpeed = 0;
     this.total = 0;
     this.tail = [];
   }
-  
-  moveDir(xDir, yDir){
+
+  moveDir(xDir, yDir) {
     this.xSpeed = xDir * SCL;
     this.ySpeed = yDir * SCL;
   }
 
-  eatsFood(foodPosition){
+  eatsFood(foodPosition) {
 
     var isColliding = dist(this.pos.x, this.pos.y, foodPosition.x, foodPosition.y) < 1;
-    if(isColliding){
+    if (isColliding) {
       this.total++;
     }
 
     return isColliding;
   }
 
-  losesTail(){}
+  losesTail() {}
 
-  update(){
-    if(this.total > 0){
+  update() {
+
+    if (this.total === this.tail.length) {
+      for (var i = 0; i < this.tail.length - 1; i++) {
+        this.tail[i] = this.tail[i + 1];
+      }
+    }
+    if (this.total > 0) {
       this.tail[this.total - 1] = this.pos.copy();
     }
     const tempX = this.pos.x + this.xSpeed;
@@ -34,8 +40,11 @@ class Snake {
     this.pos.y = constrain(tempY, 0, height - SCL);
   }
 
-  show(){
+  show() {
     fill(255);
     rect(this.pos.x, this.pos.y, SCL, SCL);
+    for (var i = 0; i < this.tail.length; i++) {
+      rect(this.tail[i].x, this.tail[i].y, SCL, SCL);
+    }
   }
 }
