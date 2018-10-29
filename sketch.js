@@ -1,4 +1,5 @@
 let snake, food, cols, rows;
+let lostTail = false;
 const SCL = 20;
 
 function setup() {
@@ -20,6 +21,15 @@ function draw() {
   rect(food.x, food.y, SCL, SCL);
   snake.update();
   snake.show();
+
+  textSize(32);
+  text(snake.total, 10, 30);
+  lostTail = snake.losesTail();
+
+  if (snake.total === 0 && lostTail) {
+    text("Start Over", 10, 60);
+  }
+
   snake.losesTail();
 }
 
