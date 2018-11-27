@@ -1,0 +1,2 @@
+# snake-playground
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2b0ff1b6c112446d80fba859e82f9b29)](https://app.codacy.com/app/RubenMateus/snake-playground?utm_source=github.com&utm_medium=referral&utm_content=RubenMateus/snake-playground&utm_campaign=Badge_Grade_Dashboard)
